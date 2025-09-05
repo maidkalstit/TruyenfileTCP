@@ -19,10 +19,8 @@
 
 </div>
 
-DaiNam University Logo
-
- [![AIoTLab](https://img.shields.io/badge/AIoTLab-green?style=for-the-badge)](https://www.facebook.com/DNUAIoTLab) [![Faculty of Information Technology](https://img.shields.io/badge/Faculty%20of%20Information%20Technology-blue?style=for-the-badge)](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin) [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn) .
- 1. Giới thiệu hệ thống
+---
+## 1. Giới thiệu hệ thống
 Hệ thống Truyền File Qua TCP được xây dựng nhằm hỗ trợ người dùng truyền tải file giữa client và server một cách an toàn và đáng tin cậy bằng giao thức TCP. Ứng dụng này minh họa các khái niệm cơ bản trong môn Mạng Máy Tính, chẳng hạn như kết nối socket, luồng dữ liệu (stream), và xử lý file trong môi trường mạng.
 Các chức năng chính:
 
