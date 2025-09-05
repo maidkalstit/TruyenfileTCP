@@ -43,17 +43,25 @@ Xử lý nhiều kết nối cơ bản (có thể mở rộng đa luồng).
 
 Hệ thống hỗ trợ truyền các loại file khác nhau (text, hình ảnh, video, binary), với cơ chế gửi kích thước file trước để kiểm tra toàn vẹn dữ liệu. Dự án có thiết kế modular để dễ dàng phát triển thêm tính năng như hiển thị tiến độ truyền, tiếp tục truyền nếu đứt kết nối (resume), hoặc hỗ trợ truyền nhiều file cùng lúc.
 ##2. Ngôn ngữ & Công nghệ chính
- <div align="center"> [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
- [![TCP Socket](https://img.shields.io/badge/TCP%20Socket-1572B6?style=for-the-badge&logo=network&logoColor=white)](https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html) 
-     </div>
+<div align="center">
+    
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![TCP Socket](https://img.shields.io/badge/TCP%20Socket-1572B6?style=for-the-badge&logo=network&logoColor=white)](https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html) 
+
+ </div>
 Java: Ngôn ngữ lập trình chính, sử dụng gói java.net để xử lý Socket TCP và java.io để đọc/ghi file qua stream. Phiên bản Java 8 trở lên được khuyến nghị để đảm bảo tương thích.
 TCP Socket: Giao thức cốt lõi, đảm bảo truyền dữ liệu đáng tin cậy, có kết nối (connection-oriented), thứ tự gói tin, và phát hiện lỗi tự động.
 JDK (Java Development Kit): Phiên bản 8 trở lên để biên dịch và chạy code Java. Hỗ trợ các tính năng mạng và IO cơ bản.
 VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.
  ### Môi trường chạy
- <div align="center">
- [![JDK](https://img.shields.io/badge/JDK-4479A1?style=for-the-badge&logo=java&logoColor=white)](https://www.oracle.com/java/technologies/downloads/) [![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
+<div align="center">
+
+
+ [![JDK](https://img.shields.io/badge/JDK-4479A1?style=for-the-badge&logo=java&logoColor=white)](https://www.oracle.com/java/technologies/downloads/)
+ [![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
+
+  </div>
  JDK (Java Development Kit): Phiên bản 8 trở lên để biên dịch và chạy code Java. Hỗ trợ các tính năng mạng và IO cơ bản.
-VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.</div>
+VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.
 
 
