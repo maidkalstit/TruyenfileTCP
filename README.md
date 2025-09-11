@@ -42,6 +42,7 @@ Xử lý nhiều kết nối cơ bản (có thể mở rộng đa luồng).
 
 
 Hệ thống hỗ trợ truyền các loại file khác nhau (text, hình ảnh, video, binary), với cơ chế gửi kích thước file trước để kiểm tra toàn vẹn dữ liệu. Dự án có thiết kế modular để dễ dàng phát triển thêm tính năng như hiển thị tiến độ truyền, tiếp tục truyền nếu đứt kết nối (resume), hoặc hỗ trợ truyền nhiều file cùng lúc.
+
 ##2. Ngôn ngữ & Công nghệ chính
 <div align="center">
     
