@@ -64,5 +64,6 @@ VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension 
   </div>
  JDK (Java Development Kit): Phiên bản 8 trở lên để biên dịch và chạy code Java. Hỗ trợ các tính năng mạng và IO cơ bản.
 VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.
+2
 
 
