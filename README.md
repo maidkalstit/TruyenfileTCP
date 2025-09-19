@@ -77,6 +77,35 @@ VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension 
 
 ## 3. Hình ảnh các chức năng
 
+<div align = "center">
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/sv.png" />
+
+hình ảnh Server kết nối đến Client
+
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/cli.png" />
+
+Hình ảnh Client sau khi được kết nối
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clisend.png" />
+
+Hình ảnh Client sau khi ấn chọn file để chuẩn bị gửi
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clipick.png" />
+
+Hình ảnh Client sau khi chọn file và hiển thị file để gửi
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clidone.png" />
+
+Hình ảnh Client thông báo thông tin sau khi gửi
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/svdone.png" />
+
+Hình ảnh Server sau khi thực hiện các lệnh 
+
+</div>
+
 ## 4. Hướng dẫn cài đặt và sử dụng
 
 Yêu cầu hệ thống
@@ -88,27 +117,27 @@ Môi trường: Windows/Linux/macOS với quyền đọc/ghi file.
 
 Các bước cài đặt
 
-Cài đặt JDK:
+Bước 1: Cài đặt JDK:
 
 Tải từ Oracle JDK.
 Cấu hình biến môi trường: Thêm JAVA_HOME (đường dẫn JDK) và %JAVA_HOME%\bin vào PATH.
 Kiểm tra: Chạy java -version trong terminal.
 
 
-Cài đặt VS Code:
+Bước 2: Cài đặt VS Code:
 
 Tải từ Visual Studio Code.
 Cài extension: Tìm "Extension Pack for Java" và install.
 
 
-Tải source code:
+Bước 3: Tải source code:
 
 Clone repo: git clone https://github.com/maidkalstit/TruyenfileTCP.git.
 Mở thư mục src trong VS Code: File > Open Folder > chọn /TruyenfileTCP/src.
 Cấu trúc thư mục: src/bin (chứa class files sau compile).
 
 
-Biên dịch code:
+Bước 4: Biên dịch code:
 
 Mở terminal trong VS Code (Ctrl + `).
 Chạy: javac -d bin *.java (biên dịch tất cả file .java vào thư mục bin).
