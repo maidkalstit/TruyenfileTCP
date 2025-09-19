@@ -4,7 +4,7 @@
     </a>
 </h2>
 <h2 align="center">
-    Lập Trình Mạng
+    TRUYỀN FILE QUA GIAO THỨC TCP
 </h2>
 <div align="center">
     <p align="center">
@@ -48,12 +48,22 @@ Hệ thống hỗ trợ truyền các loại file khác nhau (text, hình ảnh,
     
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![TCP Socket](https://img.shields.io/badge/TCP%20Socket-1572B6?style=for-the-badge&logo=network&logoColor=white)](https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html) 
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+
 
  </div>
 Java: Ngôn ngữ lập trình chính, sử dụng gói java.net để xử lý Socket TCP và java.io để đọc/ghi file qua stream. Phiên bản Java 8 trở lên được khuyến nghị để đảm bảo tương thích.
+
 TCP Socket: Giao thức cốt lõi, đảm bảo truyền dữ liệu đáng tin cậy, có kết nối (connection-oriented), thứ tự gói tin, và phát hiện lỗi tự động.
+
 JDK (Java Development Kit): Phiên bản 8 trở lên để biên dịch và chạy code Java. Hỗ trợ các tính năng mạng và IO cơ bản.
+
 VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.
+
+GitHub: Nền tảng lưu trữ và chia sẻ repo Git online để hợp tác làm việc nhóm.
+
+Git: Công cụ quản lý phiên bản phân tán, giúp theo dõi và quay lại lịch sử code.
  ### Môi trường chạy
 <div align="center">
 
@@ -64,6 +74,82 @@ VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension 
   </div>
  JDK (Java Development Kit): Phiên bản 8 trở lên để biên dịch và chạy code Java. Hỗ trợ các tính năng mạng và IO cơ bản.
 VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension "Extension Pack for Java" để hỗ trợ biên dịch, chạy, debug code Java một cách dễ dàng. VS Code cho phép mở terminal nội bộ để compile và run mà không cần công cụ bên ngoài.
-2
 
+## 3. Hình ảnh các chức năng
+
+## 4. Hướng dẫn cài đặt và sử dụng
+
+Yêu cầu hệ thống
+
+JDK: Phiên bản 8 trở lên (khuyến nghị 17 cho hiệu suất tốt hơn).
+
+VS Code: Với extension "Extension Pack for Java" để biên dịch và debug.
+Môi trường: Windows/Linux/macOS với quyền đọc/ghi file.
+
+Các bước cài đặt
+
+Cài đặt JDK:
+
+Tải từ Oracle JDK.
+Cấu hình biến môi trường: Thêm JAVA_HOME (đường dẫn JDK) và %JAVA_HOME%\bin vào PATH.
+Kiểm tra: Chạy java -version trong terminal.
+
+
+Cài đặt VS Code:
+
+Tải từ Visual Studio Code.
+Cài extension: Tìm "Extension Pack for Java" và install.
+
+
+Tải source code:
+
+Clone repo: git clone https://github.com/maidkalstit/TruyenfileTCP.git.
+Mở thư mục src trong VS Code: File > Open Folder > chọn /TruyenfileTCP/src.
+Cấu trúc thư mục: src/bin (chứa class files sau compile).
+
+
+Biên dịch code:
+
+Mở terminal trong VS Code (Ctrl + `).
+Chạy: javac -d bin *.java (biên dịch tất cả file .java vào thư mục bin).
+
+
+
+Hướng dẫn sử dụng
+
+Khởi động hệ thống:
+
+Mở Terminal 1 (cho Server): Chạy lệnh java -cp bin ServerGUI.
+(ServerGUI sẽ khởi động, hiển thị giao diện lắng nghe trên port 8080.)
+Mở Terminal 2 (cho Client): Chạy lệnh java -cp bin ClientGUI.
+(ClientGUI sẽ hiển thị giao diện chọn file và kết nối đến server.)
+
+
+Thao tác truyền file:
+
+Trên ClientGUI: Nhấn "Chọn File" > Chọn file > Nhấn "Gửi File" (kết nối tự động đến server).
+Trên ServerGUI: Xem log nhận file và lưu tự động.
+Để nhận file: Trên Client, chọn "Nhận File" > Nhập tên file trên server > Nhấn "Nhận".
+Kết thúc: Đóng GUI hoặc nhấn nút "Exit".
+
+
+Test và debug:
+
+Test cơ bản: Gửi file nhỏ (text.txt) từ client đến server, kiểm tra file lưu trên server.
+Debug trong VS Code: Đặt breakpoint trong ServerGUI.java hoặc ClientGUI.java, nhấn F5 để debug.
+Lỗi phổ biến: Port 8080 bị chiếm (thay đổi trong code), firewall chặn (cho phép port 8080).
+
+## 5. Liên hệ
+
+Nếu bạn có câu hỏi, góp ý hoặc muốn đóng góp cho dự án, vui lòng liên hệ qua:
+
+Tác giả: Đặng Bùi Thanh Tùng.
+Repository: TruyenfileTCP – Fork và pull request để cải tiến.
+Email: tung12342004@gmail.com
+
+Hỗ trợ học phần: Thảo luận trên Issues của repo hoặc diễn đàn lớp học.
+
+Cảm ơn bạn đã quan tâm đến dự án! Dự án này là tài liệu tham khảo cho học phần Lập Trình Mạng, khuyến khích sinh viên mở rộng thêm tính năng như mã hóa AES cho file truyền.
+
+© 2025 - Dự án học thuật, mã nguồn mở dưới giấy phép MIT. Không sử dụng cho mục đích thương mại mà không có sự cho phép.
 
