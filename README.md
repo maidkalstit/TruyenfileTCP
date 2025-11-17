@@ -148,15 +148,11 @@ Hướng dẫn sử dụng
 
 Khởi động hệ thống:
 
-Mở Terminal 1 (cho Server): Chạy lệnh java -cp bin ServerGUI.
-(ServerGUI sẽ khởi động, hiển thị giao diện lắng nghe trên port 8080.)
-Mở Terminal 2 (cho Client): Chạy lệnh java -cp bin ClientGUI.
-(ClientGUI sẽ hiển thị giao diện chọn file và kết nối đến server.)
-
+Mở Terminal : =chạy java -cp "bin;lib/*" GUI để khởi động UI khởi động CLient kết nối đến server
 
 Thao tác truyền file:
 
-Trên ClientGUI: Nhấn "Chọn File" > Chọn file > Nhấn "Gửi File" (kết nối tự động đến server).
+Trên Client: Nhấn "Chọn File" > Chọn file > Nhấn "Gửi File" (kết nối tự động đến server).
 Trên ServerGUI: Xem log nhận file và lưu tự động.
 Để nhận file: Trên Client, chọn "Nhận File" > Nhập tên file trên server > Nhấn "Nhận".
 Kết thúc: Đóng GUI hoặc nhấn nút "Exit".
@@ -166,7 +162,7 @@ Test và debug:
 
 Test cơ bản: Gửi file nhỏ (text.txt) từ client đến server, kiểm tra file lưu trên server.
 Debug trong VS Code: Đặt breakpoint trong ServerGUI.java hoặc ClientGUI.java, nhấn F5 để debug.
-Lỗi phổ biến: Port 8080 bị chiếm (thay đổi trong code), firewall chặn (cho phép port 8080).
+Lỗi phổ biến: Port 5050 bị chiếm (thay đổi trong code), firewall chặn (cho phép port 5050).
 
 ## 5. Liên hệ
 
