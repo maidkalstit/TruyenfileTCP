@@ -85,30 +85,45 @@ VS Code: Môi trường phát triển tích hợp (IDE) chính, với extension 
 
 <div align = "center">
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/sv.png" />
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/port.png" />
 
-hình ảnh Server kết nối đến Client
+Chọn sever
 
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/start.png" />
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/cli.png" />
+Giao diện launcher cho toàn bộ hệ thống client-server
 
-Hình ảnh Client sau khi được kết nối
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/xacnhan.png" />
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clisend.png" />
+Giao diện xác thực lại server trước khi khởi động client
 
-Hình ảnh Client sau khi ấn chọn file để chuẩn bị gửi
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/client.png" />
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clipick.png" />
+Giao diện 2 client sau khi khởi động bằng launcher
 
-Hình ảnh Client sau khi chọn file và hiển thị file để gửi
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/chonfile.png" />
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/clidone.png" />
+giao diện chọn file để gửi sang client 2 để chuẩn bị gửi
 
-Hình ảnh Client thông báo thông tin sau khi gửi
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/xemtruocfile.png" />
 
-<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/svdone.png" />
+người gửi có thể xem loại file mình chuẩn bị gửi
 
-Hình ảnh Server sau khi thực hiện các lệnh 
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/datoi.png" />
+
+Hình ảnh sever nhận sau khi file đã truyền tới
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/xemfile.png" />
+
+Người nhận có thể xem file sau khi nhận được file
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/keo tha.png" />
+
+Chức năng kéo thả nhiều file
+
+<img alt="AIoTLab Logo" width="500" src="https://github.com/maidkalstit/TruyenfileTCP/blob/main/img/theme.png" />
+
+Chức năng đổi bộ giao diện
 
 </div>
 
