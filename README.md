@@ -21,27 +21,33 @@
 
 ---
 ## 1. Giới thiệu hệ thống
-Hệ thống Truyền File Qua TCP được xây dựng nhằm hỗ trợ người dùng truyền tải file giữa client và server một cách an toàn và đáng tin cậy bằng giao thức TCP. Ứng dụng này minh họa các khái niệm cơ bản trong môn Mạng Máy Tính, chẳng hạn như kết nối socket, luồng dữ liệu (stream), và xử lý file trong môi trường mạng.
+Hệ thống AuroraShare được xây dựng nhằm hỗ trợ người dùng chia sẻ file và thông điệp text giữa các client qua server trung tâm một cách an toàn và đáng tin cậy bằng giao thức TCP. Ứng dụng này minh họa các khái niệm cơ bản trong môn Lập Trình Mạng, chẳng hạn như kết nối socket, luồng dữ liệu (stream), chunking dữ liệu, và xử lý file trong môi trường mạng cục bộ.
+
 Các chức năng chính:
 
 Client:
 
-Kết nối đến server qua TCP Socket.
-Gửi file đến server bằng lệnh "send [tên file]".
-Nhận file từ server bằng lệnh "receive [tên file]".
-Hiển thị thông báo thành công hoặc lỗi (ví dụ: file không tồn tại, kết nối thất bại).
+Kết nối đến server qua TCP Socket và nhận ID duy nhất.
 
+Gửi đề nghị file (FILE_OFFER), truyền file theo chunk (32KB/chunk) với sequence number.
+
+Nhận file tự động và lưu vào thư mục download (mặc định ~/AuroraShareDownloads).
+
+Hiển thị preview file (text/image), progress bar, và activity log cho thành công hoặc lỗi (ví dụ: kết nối thất bại, checksum mismatch).
+
+Gửi/nhận thông điệp text (TEXT) cho giao tiếp cơ bản.
 
 Server:
+Lắng nghe kết nối từ nhiều client trên port mặc định 5055.
 
-Lắng nghe kết nối từ client trên port mặc định.
-Nhận file từ client và lưu trữ tại thư mục hiện tại.
-Gửi file cho client khi nhận yêu cầu.
-Xử lý nhiều kết nối cơ bản (có thể mở rộng đa luồng).
+Quản lý và route thông điệp/file giữa các client (không lưu trữ dữ liệu).
+
+Broadcast danh sách client đang kết nối (CLIENT_LIST).
+
+Xử lý nhiều kết nối đồng thời qua multi-threading (ExecutorService).
 
 
-
-Hệ thống hỗ trợ truyền các loại file khác nhau (text, hình ảnh, video, binary), với cơ chế gửi kích thước file trước để kiểm tra toàn vẹn dữ liệu. Dự án có thiết kế modular để dễ dàng phát triển thêm tính năng như hiển thị tiến độ truyền, tiếp tục truyền nếu đứt kết nối (resume), hoặc hỗ trợ truyền nhiều file cùng lúc.
+Hệ thống hỗ trợ truyền các loại file khác nhau (text, hình ảnh, video, binary), với cơ chế gửi metadata (tên, kích thước) trước để kiểm tra toàn vẹn dữ liệu. Dự án có thiết kế modular với GUI Swing hiện đại (rounded buttons, theme switching) để dễ dàng phát triển thêm tính năng như hiển thị tiến độ truyền chi tiết, tiếp tục truyền nếu đứt kết nối (resume), hỗ trợ chat realtime, hoặc truyền nhiều file cùng lúc.
 
 ## 2. Ngôn ngữ & công nghệ chính
 <div align="center">
@@ -110,71 +116,123 @@ Hình ảnh Server sau khi thực hiện các lệnh
 
 Yêu cầu hệ thống
 
-JDK: Phiên bản 8 trở lên (khuyến nghị 17 cho hiệu suất tốt hơn).
+JDK: Phiên bản 8 trở lên (khuyến nghị 17 cho hiệu suất tốt hơn và hỗ trợ Swing hiện đại).
 
-VS Code: Với extension "Extension Pack for Java" để biên dịch và debug.
-Môi trường: Windows/Linux/macOS với quyền đọc/ghi file.
+VS Code: Khuyến nghị với extension "Extension Pack for Java" để biên dịch, debug và quản lý dự án.
+
+Môi trường: Windows/Linux/macOS với quyền đọc/ghi file (để lưu file nhận được vào thư mục download).
+
+RAM: Ít nhất 512MB (có thể cần nhiều hơn cho file lớn do đọc file vào memory).
+
+Port: Port 5055 phải mở (không bị firewall chặn).
 
 Các bước cài đặt
 
 Bước 1: Cài đặt JDK:
 
-Tải từ Oracle JDK.
-Cấu hình biến môi trường: Thêm JAVA_HOME (đường dẫn JDK) và %JAVA_HOME%\bin vào PATH.
-Kiểm tra: Chạy java -version trong terminal.
+Tải từ Oracle JDK hoặc OpenJDK (ví dụ: https://www.oracle.com/java/technologies/downloads/).
 
+Cấu hình biến môi trường: Thêm JAVA_HOME (đường dẫn đến thư mục JDK) và %JAVA_HOME%\bin vào PATH.
 
-Bước 2: Cài đặt VS Code:
+Kiểm tra: Chạy lệnh java -version trong terminal để xác nhận.
 
-Tải từ Visual Studio Code.
-Cài extension: Tìm "Extension Pack for Java" và install.
+Bước 2: Cài đặt VS Code (tùy chọn nhưng khuyến nghị):
 
+Tải từ https://code.visualstudio.com/.
+
+Cài extension: Mở VS Code, tìm "Extension Pack for Java" (của Microsoft) và install để hỗ trợ biên dịch, run và debug Java.
 
 Bước 3: Tải source code:
 
-Clone repo: git clone https://github.com/maidkalstit/TruyenfileTCP.git.
-Mở thư mục src trong VS Code: File > Open Folder > chọn /TruyenfileTCP/src.
-Cấu trúc thư mục: src/bin (chứa class files sau compile).
+Clone repo: git clone https://github.com/maidkalstit/TruyenfileTCP.git (thay thế bằng URL repo thực tế nếu có; hiện tại giả định).
+
+Mở thư mục dự án trong VS Code: File > Open Folder > chọn thư mục chứa các file .java (ví dụ: /TruyenfileTCP/src).
+
+Cấu trúc thư mục:
+
+src/ (chứa các file như GUI.java, Server.java, Client.java, NetworkMessage.java, RoundedButton.java).
+
+bin/ (tạo mới để chứa class files sau biên dịch).
+
+Không có thư viện bên ngoài (lib/), chỉ dùng Java chuẩn.
 
 
 Bước 4: Biên dịch code:
 
-Mở terminal trong VS Code (Ctrl + `).
-Chạy: javac -d bin *.java (biên dịch tất cả file .java vào thư mục bin).
+Mở terminal trong VS Code (Ctrl + `) hoặc Command Prompt/Terminal.
 
+Chạy lệnh: javac -d bin *.java (biên dịch tất cả file .java trong thư mục hiện tại vào thư mục bin).
 
+Nếu dùng VS Code với extension Java, có thể biên dịch tự động qua Run > Run Without Debugging.
 
 Hướng dẫn sử dụng
 
 Khởi động hệ thống:
 
-Mở Terminal : =chạy java -cp "bin;lib/*" GUI để khởi động UI khởi động CLient kết nối đến server
+Mở terminal và di chuyển đến thư mục bin (nơi chứa các .class).
+
+Chạy lệnh: java -cp bin GUI để khởi động ứng dụng chính (LauncherFrame sẽ mở, tự động khởi động server trên port 5055 và hiển thị log).
+
+Launcher sẽ hiển thị giao diện với nút "Mở cửa sổ Client" để mở các instance client mới (hỗ trợ nhiều client trên cùng máy).
 
 Thao tác truyền file:
 
-Trên Client: Nhấn "Chọn File" > Chọn file > Nhấn "Gửi File" (kết nối tự động đến server).
-Trên ServerGUI: Xem log nhận file và lưu tự động.
-Để nhận file: Trên Client, chọn "Nhận File" > Nhập tên file trên server > Nhấn "Nhận".
-Kết thúc: Đóng GUI hoặc nhấn nút "Exit".
+Trong Launcher: Nhấn "Mở cửa sổ Client" để mở một client window (nhập port nếu khác 5055, mặc định localhost).
 
+Trên Client Window:
+
+Chờ nhận client ID từ server (hiển thị ở header).
+
+Chọn target client từ combo box (danh sách tự động cập nhật từ server).
+
+Nhấn "Chọn File" (hoặc drag-and-drop vào preview area) để chọn file (hỗ trợ text, image, PDF, v.v.; preview tự động hiển thị nếu là text/image).
+
+Nhấn "Gửi Ngay" để gửi file (file được chia chunk 32KB, tiến trình hiển thị trên progress bar).
+
+Để nhận file: File sẽ tự động nhận và lưu vào thư mục download mặc định (~AuroraShareDownloads); theo dõi activity log và progress.
+
+Thêm tính năng: Nhấn nút theme để thay đổi giao diện (Aurora/Midnight/Sunset), hoặc "Xem trước" để xem full preview trong dialog.
+
+Kết thúc: Đóng window client (gửi DISCONNECT), hoặc đóng Launcher để dừng server.
 
 Test và debug:
 
-Test cơ bản: Gửi file nhỏ (text.txt) từ client đến server, kiểm tra file lưu trên server.
-Debug trong VS Code: Đặt breakpoint trong ServerGUI.java hoặc ClientGUI.java, nhấn F5 để debug.
-Lỗi phổ biến: Port 5050 bị chiếm (thay đổi trong code), firewall chặn (cho phép port 5050).
+Test cơ bản:
+
+Mở hai client window từ Launcher.
+
+Từ client 1: Chọn file nhỏ (ví dụ: text.txt), chọn target là client 2, gửi.
+
+Kiểm tra: Client 2 nhận file trong thư mục download, log hiển thị "File received".
+
+Debug trong VS Code:
+
+Đặt breakpoint trong file như GUI.java hoặc Client.java (ví dụ: tại phương thức sendFile).
+
+Chạy debug: Run > Start Debugging (F5), chọn "Java" configuration.
+
+Lỗi phổ biến:
+
+Port 5055 bị chiếm: Thay đổi port trong Server.java (static final int PORT = 5055) và biên dịch lại.
+
+Firewall chặn: Cho phép port 5055 qua firewall (Windows: Settings > Update & Security > Firewall > Allow an app).
+
+OutOfMemoryError: Với file lớn, do đọc toàn bộ vào memory; giải quyết tạm bằng tăng heap size (java -Xmx1024m -cp bin GUI).
+
+Không kết nối: Kiểm tra localhost hoặc IP server đúng, và server đang chạy.
 
 ## 5. Liên hệ
 
-Nếu bạn có câu hỏi, góp ý hoặc muốn đóng góp cho dự án, vui lòng liên hệ qua:
+Nếu bạn có câu hỏi, góp ý, gặp lỗi, hoặc muốn đóng góp cho dự án (ví dụ: thêm tính năng chat, mã hóa file, hoặc cải thiện hiệu suất), vui lòng liên hệ qua:
 
 Tác giả: Đặng Bùi Thanh Tùng.
-Repository: TruyenfileTCP – Fork và pull request để cải tiến.
-Email: tung12342004@gmail.com
+Repository: TruyenfileTCP – Fork và tạo pull request để cải tiến (ví dụ: thêm tính năng chat realtime hoặc mã hóa AES cho file truyền).
 
-Hỗ trợ học phần: Thảo luận trên Issues của repo hoặc diễn đàn lớp học.
+Email: tung12342004@gmail.com.
 
-Cảm ơn bạn đã quan tâm đến dự án! Dự án này là tài liệu tham khảo cho học phần Lập Trình Mạng, khuyến khích sinh viên mở rộng thêm tính năng như mã hóa AES cho file truyền.
+Hỗ trợ học phần: Thảo luận trên Issues của repo, hoặc diễn đàn lớp học (Lập Trình Mạng).
+
+Cảm ơn bạn đã quan tâm đến dự án! Dự án này là tài liệu tham khảo cho học phần Lập Trình Mạng, khuyến khích sinh viên mở rộng thêm tính năng như tích hợp chat, mã hóa AES cho file truyền, hoặc hỗ trợ resume transfer.
 
 © 2025 - Dự án học thuật, mã nguồn mở dưới giấy phép MIT. Không sử dụng cho mục đích thương mại mà không có sự cho phép.
 
